@@ -1,0 +1,53 @@
+Evan Miller 
+cs260
+3.8.19
+
+=== Design and Implementation Plan Questions ===
+
+Below are a few questions about how you will design your program and your
+implementation plan. It is crucial to have a reasonable design and
+implementation plan before you start your program. Without this, success is
+unlikely. The following questions will help guide you in your thinking and
+raise some important questions and issues. There is no single "right" answer
+to each of the questions but there are some "wrong" answers. Some designs and
+plans are better than others. The point here is for you to think about what
+you're going to do.
+
+Make a copy of this file and edit it, adding your answers then turn this
+document in.
+
+----------------------------------------------------------------------
+
+1) What parts of the this program make it so that a tree structure is
+required? That is, why not just store everything in a linked list or hash
+table?
+
+The plant class, the plants reproduce so each plant can have children,
+and in turn their children can have children. 
+
+2) Why should the plant class NOT have pointers to other plant clasess?
+
+Data encapsulation. The plant class should only have info related directly to 
+the plant. The relationship between plants will be handled outside of the plant class.
+
+
+3) Why should the treenode class NOT have pointers to the parent node?
+
+Each node is accessible by using traversal from the treenodes references 
+to the node's children. Planttree class contains a reference to the root of the 
+tree.
+
+4) This assignment doesn't require the ability to remove nodes from the tree
+(except from the destructor). What would be the problem with allowing a node
+in the middle of the tree to be removed?
+
+We wouldn't know how to restructure the tree around the absent node.
+
+5) This program requires that each node in the tree has exactly 2
+children. What would be a way to allow each node to have 1 or more children
+(no limit)? What would be the challenges with that?
+
+We could change the treenode to have {plant* children} instead of a left and
+right child. This will make it hard to traverse with recursion as we wouldn't 
+know which amount of children to call on. 
+
