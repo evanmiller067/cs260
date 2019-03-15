@@ -1,0 +1,123 @@
+Lecture Two 1.9.19
+
+announcements:
+
+	If Mike doesn't post any d2l message, we will not have class next week
+
+	Online lab the sun 5 - 8
+		compile from command line and run
+
+	turnin program is used, only quizes on d2l. 
+
+	~mike.noel/classes/all  good resource to find info
+
+	design questions due sunday night
+
+Assign 1 questions
+
+	tripplely threadded linked list
+		construct 
+
+		linked structures exsist everywhere	
+
+		linked list node that holds data points to nest node
+
+		linked structure
+
+		reg linked list with three next pointers(windspeed, time, temp) and three head pointers
+
+		get prog to work with one thread first
+
+		then add the other two
+
+recursion
+
+	binary search =  cutting a problem in have to determine the correct value 
+		like recursion
+
+	int binarySearch(int arr[],int first, int last, int target)
+	{	
+		int ret = 0;
+		int mid = (first + last)/2;//this works unless huge array
+
+		//int mid = first + (last - first)/2 // will work to prevent int overflow
+		
+		if(target == arr[mid]
+		{
+			ret = mid;
+		}
+		if(last < first)
+		{
+			ret = -1;
+		}
+		if(target < arr[mid]
+		{
+			ret = binarySearch(arr, first, mid-1,target);
+		}
+		if(target > arr[mid]
+		{
+			ret = binarySearch(arr, mid+1, last, target);
+		}
+	return ret;
+	}
+
+	if you don't want infinite recursion have a base case and be working down towards base
+
+
+	tower of hanoi recursion code:
+
+	solve(count, source, dest, spare)
+	{
+		if (count == 1)
+		{
+			//move directly
+		}
+		else
+		{
+			solve(count-1, source,dest, spare);
+			solve(1, source, dest, spare);
+			solve(count-1, spare, dest, source); 
+		}
+	}
+
+Ch 4 Link - Based Implementations
+
+drawing pictures will help with linked lists
+
+shallow copy vs deep copy
+
+2.11.19 Notes
+
+Trees!!!
+
+midterm info
+	dbl linked list 
+	adding two functions
+
+Housing Program - Get started now!!!!!
+
+Trees!
+
+	tree with height h can hold 2^h - 1 nodes
+//preorder traversal of binary tree
+void traverse(Node* root)
+{
+	if(root != nullptr)
+	{
+		cout << root->data << endl;
+		traverse(root->left);
+		traverse(root->right);
+	}
+}
+
+Node traversal is O(n)
+
+binary search tree will only have up to two children
+
+postorder traversal is good for destructor
+inorder will print nodes in value order if used on binary search tree
+preorder 
+
+change order of print, and side traversal to switch between pre, in, or post order traversal
+
+
