@@ -1,0 +1,43 @@
+Notes on BST
+
+2.25.19
+
+Will help with final - make sure to master this soon
+
+inorder traversal of tree
+
+
+void traverse_inorder(node* ptr)
+{
+	if(ptr != nullptr)
+	{
+		traverse_inorder(ptr->left);
+		cout << prt->data << endl;
+		traverse_inorder(ptr->right);
+	}
+}
+
+void print_indent(node* root, h) //not complete
+{
+
+	if(root != nullptr)
+	{
+		for(int i = 0; i < height; i++)
+		{
+			cout << "-";
+		}
+
+		cout << root->data << endl;
+		print_indent(root->left, h+1);
+		print_indent(root->right, h+1);
+	}
+}
+
+void countLeaves(node * root)
+{
+	
+}
+
+copy tree
+
+

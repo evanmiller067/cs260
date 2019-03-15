@@ -1,0 +1,111 @@
+*for all projects we cannot use premade libraries(list, queue, stack)
+
+Tree Implementations
+
+tree consists of nodes
+
+tree node has data at node, "pointers" to children(which are also trees)
+
+struct node 
+{
+	int data;
+	node *	left;
+	node *	right; //for link based tree, (int right) for array where they're array indexes
+
+}
+
+tree class{
+node  * root;
+}
+
+if tree is empty, root = -1; in array based tree(0 is valid index)
+
+
+
+linked based 
+
+struct node
+{
+	int data;
+	node * right;
+	node * left;
+};
+
+class tree
+{
+	private:
+		node * root;
+
+};
+
+constructor
+tree::tree(const int data)
+{
+	: root(new mode(data, null, null);//( : initalizer list)
+}
+
+constructor that adds childred
+treee::tree(const int data, node *left, node *right)
+{
+	: root(new node(data, left, right);
+}
+
+//destructor
+tree::destroyTree(subtreeptr)
+{
+	if(subtreeptr != nulptr)
+	{
+		//post order traversal
+		destroyTree(subtreeptr->leftChildPtr);
+		destroyTree(subtreeptr->rightChildPtr);
+		delete subtreeptr;
+	}
+}
+//balanced add to non binary search tree balanced(no more than two or more level differneces between node)
+tree::balancedAdd(node * root, node * newPtr)
+{
+	if(root == nullptr)
+	{
+		return newPtr;
+	}
+	else
+	{
+		//add node to shortest side
+		if(getHeight(root->left) > getHeight(root->right))
+		{
+			root->right = balancedAdd(root->right, newPtr);
+			return(root->right);
+		}
+		
+		//do the samething to the other side
+	}
+}
+
+using a binary search tree
+
+node data structure doesn't need to be modified
+what determines if BST is how we del with the data
+
+always add to BST as a leaf where our search determines it should be(where the tree landed)
+
+when removing a node from a bst, and your node have two children, you will find
+the inorder successor and swap it's value with the node you want to delete, then
+delete then value you want to delete which is now a leaf. 
+
+inorder successor(the left most of the right)
+
+---- in housing prog use size_t to keep hashing number positive while creating overflow -----
+
+balanced search trees (log^n search time)
+
+a 2 - 3 tree
+	search tree, can have two children, zero children, or three children. still left smaller than root,
+right larger than root, on a three node the middle child is greater than left and smaller than right.
+
+a two node is same as a bst,
+
+two node has one value, root, a three node has two values, left(smaller) and right(larger). 
+
+red black tree is a bst implementation of a 2-3-4 tree
+
+

@@ -1,0 +1,8 @@
+Here is my housing program, I used a tutor, cplusplus.com, and the supplied examples on d2l, 
+so my functions will match pretty close to those. I was able to match your expected output, 
+except for the one, two, or three whitespace characters added after the listed friend names.
+Thanks for taking the time to teach us!
+
+Evan Miller
+2.26.19
+cs260
