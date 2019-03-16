@@ -25,4 +25,3 @@ This assignment includes several files:
 - makefile		 a makefile that contains build and test targets (optional).
 
 - rubric.txt		 the grading rubric for this assignment
-
