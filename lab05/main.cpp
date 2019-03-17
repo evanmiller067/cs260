@@ -1,4 +1,5 @@
 #include <iostream>
+#include "functions.h"
 
 using namespace std;
 
@@ -34,13 +35,13 @@ int main() {
     switch (choice) {
 	case 1:
 
-	    //doGCD(x,y);
+	    cout << "Greatest Common Denominator of " << x << " and "<< y <<" is " << doGCD(x,y) << endl;
 	    break;
 	case 2:
-	    //doLCM(x,y);
+	    cout << "Least Common Multiple of " << x << " and " << y << " is " << doLCM(x,y) << endl;
 	    break;
 	case 3:
-	    //doAverage(x,y);
+	    doAverage(x,y);
 	    break;
 	case 0:
 	    done = true;
