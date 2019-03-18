@@ -14,7 +14,7 @@ planttree::planttree(const planttree& copy)
 {
 	myRoot = copyTree(copy.myRoot);
 }
-planttree& plnattree::operator=(const planttree&)
+planttree& planttree::operator=(const planttree& root)
 {
 /*
     1.  Deallocate any memory that MyClass is using internally
@@ -22,13 +22,14 @@ planttree& plnattree::operator=(const planttree&)
     3.  Copy the values from rhs into this instance
     4.  Return *this
 */
+}
 void planttree::setRoot(const plant& root)
 {
 	myRoot = new treenode(root);
 }
-void planttree::addChildren(const plant& parent, const plnat& left, const plant& right)
+void planttree::addChildren(const plant& parent, const plant& left, const plant& right)
 {
-	trenode* curr = search(myRoot, parent.getID());
+	treenode* curr = search(myRoot, parent.getID());
 	if(curr != nullptr)
 	{
 		curr->left = new treenode(left);
@@ -54,7 +55,11 @@ void planttree::preOrderPrint(treenode* root, int height)
 		preOrderPrint(root->right, height);
 	}
 }
-plant* planttree::findBestGrowth(treenode* root) const
+plant* planttree::findBestGrowth() const
+{
+	return findBestG(myRoot);
+}
+plant* planttree::findBestG(treenode* root) const
 {
 	if(root == nullptr)
 	{
@@ -62,8 +67,8 @@ plant* planttree::findBestGrowth(treenode* root) const
 	}
 	else
 	{
-		plant* left = (findBestGrowth(root->left) == nullptr) ? &(root->p) : findBestGrowth(root->left);
-		plant* right = (findBestGrowth(root->right) == nullptr) ? &(root->p) : findBestGrowth(root->right);
+		plant* left = (findBestG(root->left) == nullptr) ? &(root->p) : findBestG(root->left);
+		plant* right = (findBestG(root->right) == nullptr) ? &(root->p) : findBestG(root->right);
 		if(root->p.getGrowth() > left->getGrowth() && root->p.getGrowth() > right->getGrowth())
 		{
 			return &(root->p);
@@ -74,7 +79,11 @@ plant* planttree::findBestGrowth(treenode* root) const
 		}
 	}
 }
-plant* planttree::findBestWater(treenode* root) const
+plant* planttree::findBestWater() const
+{
+	return findBestW(myRoot);
+}
+plant* planttree::findBestW(treenode* root) const
 {
 	if(root == nullptr)
 	{
@@ -82,8 +91,8 @@ plant* planttree::findBestWater(treenode* root) const
 	}
 	else
 	{
-		plant* left = (findBestWater(root->left) == nullptr) ? &(root->p) : findBestWater(root->left);
-		plant* right = (findBestWater(root->right) == nullptr) ? &(root->p) : findBestWater(root->right);
+		plant* left = (findBestW(root->left) == nullptr) ? &(root->p) : findBestW(root->left);
+		plant* right = (findBestW(root->right) == nullptr) ? &(root->p) : findBestW(root->right);
 		if (root->p.getWater() > left->getWater() && root->p.getWater() > right->getWater()) 
 		{
 			return &(root->p);
@@ -94,7 +103,11 @@ plant* planttree::findBestWater(treenode* root) const
 		}
 	}
 }
-plant* planttree::findBestNutrition(treenode* root) const
+plant* planttree::findBestNutrition() const
+{
+	return findBestN(myRoot);
+}
+plant* planttree::findBestN(treenode* root) const
 {
 	if (root == nullptr)
 	{
@@ -102,8 +115,8 @@ plant* planttree::findBestNutrition(treenode* root) const
 	}
 	else
 	{
-		plant* left = (findBestNutrition(root->left) == nullptr) ? &(root->p) : findBestNutrition(root->left);
-		plant* right = (findBestNutrition(root->right) == nullptr) ? &(root->p) : findBestNutrition(root->right);
+		plant* left = (findBestN(root->left) == nullptr) ? &(root->p) : findBestN(root->left);
+		plant* right = (findBestN(root->right) == nullptr) ? &(root->p) : findBestN(root->right);
 		if(root->p.getNutrition() > left->getNutrition() && root->p.getNutrition() > right->getNutrition())
 		{
 			return &(root->p);

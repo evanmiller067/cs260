@@ -8,7 +8,7 @@ class plant
 		char* myID;
 		int myGrowthRate;
 		int myNutritionalValue;
-		int myWaterRequirements;
+		int myWaterRequirement;
 	public:
 		plant();
 		plant(const char*, const int, const int, const int);
@@ -23,7 +23,7 @@ class plant
 };
 inline std::ostream& operator<<(std::ostream& os, const plant& p)
 {
-	os << "Plant ID: " << p.getId() << " (";
+	os << "Plant ID: " << p.getID() << " (";
 	os << "G: " << p.getGrowth() << " ";
 	os << "N: " << p.getNutrition() << " ";
 	os << "W: " << p.getWater() << ")";

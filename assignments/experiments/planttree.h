@@ -38,11 +38,9 @@ class planttree
 		treenode* myRoot;
 
 		void preOrderPrint(treenode*, int);
-		//findBest functions - might need to make public without ptr arg
-		plant* findBestGrowth(treenode*) const;
-		plant* findBestNutrition(treenode*) const;
-		plant* findBestWater(treenode*) const;
-		
+		plant* findBestG(treenode*) const;
+		plant* findBestN(treenode*) const;
+		plant* findBestW(treenode*) const;
 		//copy function for tree
 		treenode* copyTree(treenode* root)
 		{
@@ -61,7 +59,7 @@ class planttree
 		//search function for tree
 		treenode* search(treenode* root, char* ID)
 		{
-			int temp;
+			treenode* temp;
 			if(root != nullptr)
 			{
 				if(std::strncmp(root->p.getID(), ID, strlen(ID)+1) == 0)
@@ -84,8 +82,11 @@ class planttree
 		planttree(const planttree&);
 		planttree& operator=(const planttree&);
 		void setRoot(const plant&);
-		void addChildren(const plant&);
+		void addChildren(const plant&, const plant&, const plant&);
 		void display();
-		//might need to add public findBest functions
+		plant* findBestGrowth() const;
+		plant* findBestNutrition() const;
+		plant* findBestWater() const;
+			
 };
 #endif
