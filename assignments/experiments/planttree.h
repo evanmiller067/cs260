@@ -41,7 +41,7 @@ class planttree
 		//findBest functions - might need to make public without ptr arg
 		plant* findBestGrowth(treenode*) const;
 		plant* findBestNutrition(treenode*) const;
-		plant findBestWater(treenode*) const;
+		plant* findBestWater(treenode*) const;
 		
 		//copy function for tree
 		treenode* copyTree(treenode* root)
