@@ -23,12 +23,10 @@ class planttree
 			treenode* left;
 			treenode* right;
 			//constructor and destructor
-			treenode(const plant & p1)
-			{
-				left = nullptr;
-				right = nullptr;
-				p = p1;
-			}
+			treenode(const plant & p1):
+				left(nullptr),
+				right(nullptr),
+				p(p1) {}
 			~treenode()
 			{
 				delete left;
@@ -59,21 +57,15 @@ class planttree
 		//search function for tree
 		treenode* search(treenode* root, char* ID)
 		{
-			treenode* temp;
 			if(root != nullptr)
 			{
 				if(std::strncmp(root->p.getID(), ID, strlen(ID)+1) == 0)
 				{
-					temp = root;
+					return root;
 				}
-				search(root->left, ID);
-				search(root->right, ID);
+				return (search(root->left, ID) != nullptr) ? search(root->left, ID) : search(root->right, ID);
 			}
-			else
-			{
-				temp = nullptr;
-			}
-		return temp;
+			return nullptr;
 		}
 
 	public:
