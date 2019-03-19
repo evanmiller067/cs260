@@ -17,3 +17,5 @@ testtree: plant.o planttree.o testtree.o
 testplant: plant.o testplant.o
 	$(CC) $(CPPFLAGS) -o $@ $^
 	valgrind --leak-check=yes ./$@
+clean:
+	rm *.o testplant testtree experiments
