@@ -1,0 +1,46 @@
+Proficiency Test Final
+
+Start with the code in ~mike.noel/classes/cs260/teacher/exams/final. Copy the
+files from there into your own directory. The file supplied.o contains code
+that can build, display, and destroy a binary search tree.
+
+For this exam, you will need to write the following functions in table.cpp,
+and add function prototypes for them to table.h and invoke the functions in
+main.cpp.
+
+* int sumOfNodes(node * root)
+
+  Recursively calculate the sum of all the nodes in the tree.
+
+* void copyLeaf(node * src, node *& dest)
+
+  Recursively copy all the leaves from the source tree to the destination
+  tree. The destination tree must be a binary search tree.
+
+Run your program in valgrind and make sure there is no memory leaks or memory
+errors. Assuming the executable file is named main
+
+valgrind --tool=memcheck --leak-check=full ./main
+
+For test submission, use the 'turnin' program to turnin the table.cpp,
+table.h, and main.cpp files (you can run it three times, as below, or put all
+the files in a zip and run it once).
+
+~mike.noel/bin/turnin cs260 main.cpp
+~mike.noel/bin/turnin cs260 table.cpp
+~mike.noel/bin/turnin cs260 table.h
+
+The grading criteria are:
+
+5pts The program compiles
+3pts The program runs without crashing or hanging
+2pts No memory errors or memory leaks
+5pts Correct functionality (2pts for sumOfNodes, 3pts for copyLeaf)
+5pts Recursive implementation (2pts for sumOfNodes, 3pts for copyLeaf)
+
+You can get partial credit so be sure to turn in whatever you have by the end
+of the testing time period.
+
+
+ 
+
